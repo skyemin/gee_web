@@ -33,8 +33,8 @@ func parsePattern(pattern string) []string {
 
 func (router *router) addRoute(method string, pattern string, handler HandlerFunc) {
 	parts := parsePattern(pattern)
-	key := method + "_" + pattern
-	_, ok := router.roots[key]
+	key := method + "-" + pattern
+	_, ok := router.roots[method]
 	if !ok {
 		router.roots[method] = &node{}
 	}
